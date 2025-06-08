@@ -38,8 +38,8 @@ const CareersSupport = () => {
               Get personalized support, resume building, and expert coaching from AARK Connect’s Career Support team — empowering your journey into tech with real-world tools and industry mentorship.
             </p>
             <div className="mt-4 flex flex-col sm:flex-row items-center sm:items-start gap-4">
-              <button className="bg-white text-green-700 font-semibold px-6 py-2 rounded-full shadow hover:bg-gray-100 transition">Join Now</button>
-              <button className="border border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-green-700 transition">Learn More</button>
+              {/* <button className="bg-white text-green-700 font-semibold px-6 py-2 rounded-full shadow hover:bg-gray-100 transition">Join Now</button>
+              <button className="border border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-green-700 transition">Learn More</button> */}
             </div>
           </motion.div>
 

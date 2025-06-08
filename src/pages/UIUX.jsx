@@ -19,7 +19,7 @@ const UIUX = () => {
         {/* Left Image */}
         <div className="w-full md:w-1/2 mb-6 md:mb-0 px-4">
           <img
-            src="/creating-application-concept-people-content-text-place-ui-ux-design_138260-626.png"
+            src="/UI-UX-service-Head-Illustration4x.jpg"
             alt="UI/UX Design"
             className="w-full h-auto max-w-full rounded-xl shadow-lg object-cover"
           />

@@ -1,98 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { FaSignInAlt } from 'react-icons/fa';
-
-const LoginModal = ({ onClose }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password }, {
-        headers: { 'Content-Type': 'application/json' }
-      });
-      const data = res.data;
-      localStorage.setItem('token', data.token);
-      if (data.role === 'admin') window.location.href = '/admin-dashboard';
-      else window.location.href = '/user-dashboard';
-    } catch (err) {
-      alert(err.response?.data?.error || 'Login failed');
-    }
-  };
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="min-h-screen flex items-center justify-center py-8 px-2 w-full">
-        <div className="bg-white rounded-2xl shadow-xl flex flex-col md:flex-row w-full max-w-3xl overflow-hidden relative">
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold z-10"
-            aria-label="Close"
-          >
-            &times;
-          </button>
-
-          {/* Illustration */}
-          <div className="hidden md:flex items-center justify-center bg-blue-50 p-8 md:w-1/2">
-            <img
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
-              alt="Login Illustration"
-              className="w-64 h-64 object-cover rounded-xl shadow"
-            />
-          </div>
-
-          {/* Login Form */}
-          <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
-            <div className="flex flex-col items-center mb-6">
-              <img src="/logo-removebg-preview.png" alt="Logo" className="w-16 h-16 object-cover rounded-2xl bg-green-700 p-2 mb-2" />
-              <h2 className="text-2xl font-bold text-green-700 mb-2">Admin Login</h2>
-              <p className="text-gray-500 text-sm">Sign in to your admin account</p>
-            </div>
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none text-black focus:ring-2 focus:ring-green-400"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none text-black focus:ring-2 focus:ring-green-400"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              <button
-                type="submit"
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition"
-              >
-                Login
-              </button>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm sm:text-base text-gray-600">
-                <p className="hover:text-green-500 transition duration-150 ease-in-out">
-                  Register
-                </p>
-                <span className="hidden sm:inline">|</span>
-                <a
-                  href="/register/create-account/admin/V2/admin-login"
-                  className="text-sm text-gray-600 sm:text-base hover:text-green-500 transition duration-150 ease-in-out cursor-pointer"
-                >
-                  Sign Up
-                </a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+import LoginPage from './LoginPage';
 
 const Footer = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState("");
@@ -114,6 +28,21 @@ const Footer = () => {
       setStatus("Failed to send message.");
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password }, {
+        headers: { 'Content-Type': 'application/json' }
+      });
+      const data = res.data;
+      localStorage.setItem('token', data.token);
+      if (data.role === 'admin') window.location.href = '/admin-dashboard';
+      else window.location.href = '/user-dashboard';
+    } catch (err) {
+      alert(err.response?.data?.error || 'Login failed');
     }
   };
 
@@ -209,7 +138,14 @@ const Footer = () => {
       <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
         &copy; {new Date().getFullYear()} AARK Connect. All rights reserved.
       </div>
-      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
+      {showLogin && (
+        <LoginPage
+          onClose={() => setShowLogin(false)}
+          handleSubmit={handleLoginSubmit}
+          setEmail={setEmail}
+          setPassword={setPassword}
+        />
+      )}
     </footer>
   )
 }

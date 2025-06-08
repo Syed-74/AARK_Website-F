@@ -45,10 +45,10 @@ const GalleryView = () => {
     if (!url)
       return 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png';
     if (url.includes('localhost') || url.includes('127.0.0.1')) {
-      return url.replace('http://localhost:5000', 'http://localhost:5000');
+      return url.replace('http://localhost:5000', 'http://localhost:5000'); //isme aana render ka code
     }
     if (url.startsWith('/uploads')) {
-      return `http://localhost:5000${url}`;
+      return `http://localhost:5000${url}`; //isme aana render ka code
     }
     return url;
   };
