@@ -19,7 +19,7 @@ const UIUX = () => {
         {/* Left Image */}
         <div className="w-full md:w-1/2 mb-6 md:mb-0 px-4">
           <img
-            src="/UI-UX-service-Head-Illustration4x.jpg"
+            src="/gradient-uiux-background_1323905-25-removebg-preview.png"
             alt="UI/UX Design"
             className="w-full h-auto max-w-full rounded-xl shadow-lg object-cover"
           />
@@ -31,9 +31,10 @@ const UIUX = () => {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-700 mb-4">
             Powerful UI/UX Design
           </h1>
-          <p className="text-gray-600 text-base sm:text-lg lg:text-xl mb-6">
+          <p className="text-gray-600 text-base sm:text-lg lg:text-xl mb-6 text-justify">
             Seamless design experiences that captivate and convert. We build intuitive, user-first interfaces that drive engagement.
           </p>
+
         </div>
       </div>
 

@@ -234,7 +234,7 @@ const AIData = () => {
         >
           <div className="flex-1 flex justify-center items-center w-full z-10">
             <video
-              src="/istockphoto-1210337927-640_adpp_is.mp4"
+              src="/brain-circuit-digital-computer-graphic-background-ai-microchip-brain-of-robot-futuristic-technology-free-video.mp4"
               autoPlay
               muted
               loop
@@ -267,7 +267,7 @@ const AIData = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gradient-to-r from-green-50 to-blue-50 px-4">
+      <section className="py-20 bg-gradient-to-r bg-white px-4">
         <h2 className="text-3xl font-bold text-center text-blue-700 mb-12">Why Choose Us?</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {whyChoose.map((w, i) => (
@@ -279,25 +279,6 @@ const AIData = () => {
               <div className="text-4xl mb-3">{w.icon}</div>
               <h4 className="font-bold text-blue-600 mb-1">{w.title}</h4>
               <p className="text-gray-600 text-sm">{w.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 px-4 bg-white">
-        <h2 className="text-3xl font-bold text-center text-green-700 mb-12">What Our Clients Say</h2>
-        <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.02 }}
-              className="flex-1 bg-gradient-to-br from-green-100 to-blue-100 p-6 rounded-2xl shadow-md text-center"
-            >
-              <div className="w-16 h-16 bg-green-600 text-white flex items-center justify-center rounded-full text-2xl font-bold mx-auto mb-4">{t.name[0]}</div>
-              <p className="italic text-gray-700 mb-4">“{t.text}”</p>
-              <div className="font-bold text-green-800">{t.name}</div>
-              <div className="text-sm text-blue-600">{t.company}</div>
             </motion.div>
           ))}
         </div>

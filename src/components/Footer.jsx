@@ -21,7 +21,7 @@ const Footer = () => {
     setStatus("");
 
     try {
-      await axios.post("http://localhost:5000/api/contact", formData);
+      await axios.post("https://aark-website-b.onrender.com/api/contact", formData);
       setStatus("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (err) {
@@ -34,7 +34,7 @@ const Footer = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password }, {
+      const res = await axios.post('https://aark-website-b.onrender.com/api/auth/login', { email, password }, {
         headers: { 'Content-Type': 'application/json' }
       });
       const data = res.data;

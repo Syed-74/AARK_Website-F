@@ -27,11 +27,11 @@ const About = () => {
           </div>
           <h3 className="text-2xl font-bold mb-3 text-green-700">Our Mission</h3>
           <p className="text-gray-600 text-lg text-justify mb-2">
-            AARK Connect is a software development and consulting firm dedicated to delivering high-quality, on-time, and cost-effective technology solutions. We closely collaborate with client decision-makers to understand their needs and match them with the right talent for lasting success.
+          AARK Connect is a software development and consulting firm providing high-quality, cost-effective technology and staffing solutions. We collaborate closely with client decision-makers to deliver the right talent for lasting success.
           </p>  
-          <p className="text-gray-600 text-lg text-justify">
+          {/* <p className="text-gray-600 text-lg text-justify">
             We work closely with our client's management and decision-makers that are responsible for keeping their company healthy and profitable. Understanding clients allows us to best match their company with prospective candidates in a timely and accurate manner.
-          </p>
+          </p> */}
         </div>
         </AnimatedSection>
         {/* Services */}
@@ -42,7 +42,7 @@ const About = () => {
           </div>
           <h3 className="text-2xl font-bold mb-3 text-blue-700">Exceptional IT Talent and Services</h3>
           <p className="text-gray-600 text-lg text-justify">
-            We deliver qualified consultants and project managers for both contract and ongoing requirements across all science and technology disciplines. Our mission is to offer our clients a best in class suite of professional services and to provide the most qualified candidates for our client's critical staffing needs. We strive to build a close partnership with each client and to provide quality, cost effective staffing solutions for all IT needs of our clients through personalized attention, flexibility, reliable service and innovative solutions.
+          We provide top consultants and project managers for contract and long-term needs across all science and technology fields. Our mission is to deliver high-quality, cost-effective staffing solutions through strong partnerships, personalized service, and innovative approaches.
           </p>
         </div>
         </AnimatedSection>
@@ -59,7 +59,6 @@ const About = () => {
           <ul className="text-gray-600 text-left list-disc list-inside space-y-1 text-base">
             <li>Rapid Hiring Process</li>
             <li>Industry-Expert Recruiters</li>
-            <li>Continuous Learning and Adaptation</li>
             <li>Career Consultation</li>
             <li>Community Engagement</li>
           </ul>

@@ -6,13 +6,20 @@ const ConsultationModal = ({ isOpen, onClose }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    
+    // For phone number, only allow digits and limit to 10 characters
+    if (name === 'phone') {
+      const numericValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData({ ...formData, [name]: numericValue });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/consultation", formData);
+      await axios.post("https://aark-website-b.onrender.com/api/consultation", formData);
       alert("Consultation request submitted successfully.");
       onClose();
     } catch (error) {
@@ -41,13 +48,14 @@ const ConsultationModal = ({ isOpen, onClose }) => {
           <input type="text" name="lastName" placeholder="Last Name" onChange={handleChange} className="w-full border rounded-lg px-4 py-2" required />
           <input type="date" name="dob" placeholder="Date of Birth" onChange={handleChange} className="w-full border rounded-lg px-4 py-2" required />
           <input type="email" name="email" placeholder="Email" onChange={handleChange} className="w-full border rounded-lg px-4 py-2" required />
-          <input type="tel" name="phone" placeholder="Phone Number" onChange={handleChange} className="w-full border rounded-lg px-4 py-2" required />
+          <input type="tel" name="phone" placeholder="Phone Number" onChange={handleChange} className="w-full border rounded-lg px-4 py-2" required pattern="[0-9]{10}" maxLength="10" title="Please enter exactly 10 digits" />
           <input type="text" name="address" placeholder="Address" onChange={handleChange} className="w-full border rounded-lg px-4 py-2" required />
           <select name="gender" onChange={handleChange} className="w-full border rounded-lg px-4 py-2" required>
             <option value="">Gender</option>
             <option>Male</option>
             <option>Female</option>
             <option>Other</option>
+           
           </select>
           <select name="englishProficiency" onChange={handleChange} className="w-full border rounded-lg px-4 py-2" required>
             <option value="">English Proficiency</option>
@@ -62,6 +70,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
               <option>Google</option>
               <option>Social Media</option>
               <option>Friend/Family</option>
+              <option>Linkedin</option>
               <option>Other</option>
             </select>
           </div>

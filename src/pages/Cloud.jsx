@@ -78,14 +78,7 @@ const Cloud = () => {
       </AnimatedSection>
 
       {/* Testimonial Section */}
-      <AnimatedSection className="bg-blue-100 py-12 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <blockquote className="text-xl italic text-gray-700 mb-4">
-            "Migrating to the cloud streamlined our operations and gave us the flexibility to grow faster than ever."
-          </blockquote>
-          <div className="font-semibold text-blue-600">— CTO, NextGen Tech</div>
-        </div>
-      </AnimatedSection>
+      
     </div>
   );
 };
